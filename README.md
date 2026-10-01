@@ -11,6 +11,9 @@ A fast, private collection of everyday developer utilities. Dev Toolbox runs loc
 - Timestamp converter and regex tester
 - Line-based text diff and case converter
 - QR code generator
+- JSON/YAML and CSV/JSON converters
+- SQL formatter, cron builder, Markdown preview, and color converter
+- Composable tool pipeline
 
 The app also includes command-palette search, favorites, recent tools, persistent themes, and clipboard actions.
 

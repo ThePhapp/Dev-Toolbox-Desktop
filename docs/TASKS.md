@@ -14,3 +14,6 @@
 | TOOL-008 | Case converter         | DEV-002      | Common developer casing conventions             | Unit        | Done                       |
 | TOOL-009 | QR generator           | DEV-002      | Configurable downloadable QR image              | Build       | Done                       |
 | DESK-001 | Desktop integration    | DEV-002      | Tauri shell and browser fallback                | Full checks | Blocked: Rust/MSVC missing |
+| TOOL-010 | Advanced data tools    | TOOL-001     | YAML, CSV and SQL transformations               | Unit/build  | Done                       |
+| TOOL-011 | Advanced utility tools | DEV-002      | Cron, Markdown and color utilities              | Unit/build  | Done                       |
+| PIPE-001 | Tool pipeline          | TOOL-001/002 | Ordered reusable transformations                | Unit        | Done                       |

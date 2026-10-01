@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { Suspense, useEffect, useMemo, useRef, useState } from 'react';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 import { searchTools, tools } from '../tools/registry';
 import type { ToolCategory } from '../tools/types';
@@ -136,7 +136,11 @@ export function App() {
           </button>
         </div>
         <div className="tool-content">
-          <ActiveTool />
+          <Suspense
+            fallback={<div className="tool-loading">Loading tool…</div>}
+          >
+            <ActiveTool />
+          </Suspense>
         </div>
       </main>
       {paletteOpen && (

@@ -1,15 +1,60 @@
-import { Base64Tool } from './base64';
-import { CaseTool } from './case';
-import { DiffTool } from './diff';
-import { HashTool } from './hash';
-import { JsonTool } from './json';
-import { JwtTool } from './jwt';
-import { QrTool } from './qr';
-import { RegexTool } from './regex';
-import { TimestampTool } from './timestamp';
+import { lazy } from 'react';
 import type { ToolDefinition } from './types';
-import { UrlTool } from './url';
-import { UuidTool } from './uuid';
+
+const JsonTool = lazy(() =>
+  import('./json').then((module) => ({ default: module.JsonTool })),
+);
+const Base64Tool = lazy(() =>
+  import('./base64').then((module) => ({ default: module.Base64Tool })),
+);
+const UrlTool = lazy(() =>
+  import('./url').then((module) => ({ default: module.UrlTool })),
+);
+const JwtTool = lazy(() =>
+  import('./jwt').then((module) => ({ default: module.JwtTool })),
+);
+const UuidTool = lazy(() =>
+  import('./uuid').then((module) => ({ default: module.UuidTool })),
+);
+const HashTool = lazy(() =>
+  import('./hash').then((module) => ({ default: module.HashTool })),
+);
+const TimestampTool = lazy(() =>
+  import('./timestamp').then((module) => ({ default: module.TimestampTool })),
+);
+const RegexTool = lazy(() =>
+  import('./regex').then((module) => ({ default: module.RegexTool })),
+);
+const DiffTool = lazy(() =>
+  import('./diff').then((module) => ({ default: module.DiffTool })),
+);
+const CaseTool = lazy(() =>
+  import('./case').then((module) => ({ default: module.CaseTool })),
+);
+const QrTool = lazy(() =>
+  import('./qr').then((module) => ({ default: module.QrTool })),
+);
+const YamlTool = lazy(() =>
+  import('./yaml').then((module) => ({ default: module.YamlTool })),
+);
+const CsvTool = lazy(() =>
+  import('./csv').then((module) => ({ default: module.CsvTool })),
+);
+const SqlTool = lazy(() =>
+  import('./sql').then((module) => ({ default: module.SqlTool })),
+);
+const CronTool = lazy(() =>
+  import('./cron').then((module) => ({ default: module.CronTool })),
+);
+const MarkdownTool = lazy(() =>
+  import('./markdown').then((module) => ({ default: module.MarkdownTool })),
+);
+const ColorTool = lazy(() =>
+  import('./color').then((module) => ({ default: module.ColorTool })),
+);
+const PipelineTool = lazy(() =>
+  import('./pipeline').then((module) => ({ default: module.PipelineTool })),
+);
 
 export const tools: ToolDefinition[] = [
   {
@@ -110,6 +155,69 @@ export const tools: ToolDefinition[] = [
     keywords: ['barcode', 'image'],
     icon: 'QR',
     component: QrTool,
+  },
+  {
+    id: 'yaml',
+    name: 'JSON ↔ YAML',
+    description: 'Convert JSON and YAML documents',
+    category: 'Data',
+    keywords: ['convert', 'config'],
+    icon: 'Y',
+    component: YamlTool,
+  },
+  {
+    id: 'csv',
+    name: 'CSV ↔ JSON',
+    description: 'Convert tabular CSV and JSON arrays',
+    category: 'Data',
+    keywords: ['convert', 'table'],
+    icon: 'CV',
+    component: CsvTool,
+  },
+  {
+    id: 'sql',
+    name: 'SQL Formatter',
+    description: 'Format queries across SQL dialects',
+    category: 'Data',
+    keywords: ['query', 'database'],
+    icon: 'SQ',
+    component: SqlTool,
+  },
+  {
+    id: 'cron',
+    name: 'Cron Builder',
+    description: 'Build five-field cron schedules',
+    category: 'Generate',
+    keywords: ['schedule', 'job'],
+    icon: 'CR',
+    component: CronTool,
+  },
+  {
+    id: 'markdown',
+    name: 'Markdown Preview',
+    description: 'Preview sanitized Markdown locally',
+    category: 'Text',
+    keywords: ['md', 'render'],
+    icon: 'MD',
+    component: MarkdownTool,
+  },
+  {
+    id: 'color',
+    name: 'Color Converter',
+    description: 'Convert HEX colors to RGB and HSL',
+    category: 'Generate',
+    keywords: ['hex', 'rgb', 'hsl'],
+    icon: '●',
+    component: ColorTool,
+  },
+  {
+    id: 'pipeline',
+    name: 'Tool Pipeline',
+    description: 'Chain reusable text transformations',
+    category: 'Data',
+    keywords: ['workflow', 'chain', 'compose'],
+    icon: '→',
+    component: PipelineTool,
   },
 ];
 
